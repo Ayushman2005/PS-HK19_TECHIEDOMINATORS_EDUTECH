@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 1. CALM ZEN THEME VARIABLES ── */
+:root,
+[data-theme="dark"] {
+  --bg-gradient: transparent;
+
+  /* Calming Slate Dark Mode */
+  --bg: #151720;
+  --glass-panel: #1e212e;
+  --glass-base: #1a1d27;
+  --glass-hover: rgba(255, 255, 255, 0.05);
+  --glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: #232736;
+  --glass-border-hi: #2e3246;
+
+  /* Peaceful Accent Colors (Indigo/Blue) */
+  --accent: #6b8aff;
+  --accent-dim: rgba(107, 138, 255, 0.15);
+  --accent-grad: linear-gradient(135deg, #6b8aff, #a5b4fc);
+  --accent-glow: 0 0 20px rgba(107, 138, 255, 0.3);
+
+  /* Softer Typography */
+  --text: #f0f2f8;
+  --text2: #9ca3af;
+  --text3: #6b7280;
+  --invert-text: #ffffff;
+
+  --code-bg: #0f111a;
+  --overlay-color: rgba(21, 23, 32, 0.85);
+
+  /* Status Colors */
+  --warn: #fbd38d;
+  --err: #fc8181;
+  --info: #90cdf4;
+  --purple: #d6bcfa;
+
+  /* Rounded, friendly corners */
+  --r: 16px;
+  --r2: 12px;
+  --r3: 20px;
+  --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* Chat Bubbles */
+  --chat-ai: rgba(107, 138, 255, 0.08);
+  --chat-user: rgba(255, 255, 255, 0.03);
+
+  /* Shadows */
+  --shadow-base: rgba(0, 0, 0, 0.2);
+  --shadow-heavy: rgba(0, 0, 0, 0.4);
+}
+
+/* ── 2. BASE HTML/BODY ── */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family:
+    "DM Sans",
+    -apple-system,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  display: none !important;
+}
+
+/* ── 3. BACKGROUND EFFECTS ── */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--overlay-color);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Dim any starry/particle backgrounds so they don't distract */
+#tsparticles,
+.particles-bg {
+  opacity: 0.15 !important;
+}
+
+/* ── 4. DYNAMIC COMPONENTS ── */
+.send-btn,
+.modal-submit,
+.nav-badge,
+.avatar.ai {
+  color: var(--invert-text) !important;
+}
+
+.sel-pill,
+.mode-pill {
+  background: var(--glass-panel) !important;
+  border: 1px solid var(--glass-border-hi) !important;
+  color: var(--text2) !important;
+}
+.sel-pill option {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+.sel-pill:hover,
+.mode-pill:hover {
+  background: var(--glass-bg-hover) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
+}
+
+.mode-pill.active {
+  background: var(--accent-dim) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+/* ── 5. TYPOGRAPHY ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Syne", sans-serif;
+  letter-spacing: -0.02em;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover {
+  text-shadow: var(--accent-glow);
+}
+button,
+input,
+textarea,
+select {
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+}
+input,
+textarea {
+  cursor: text;
+}
+
+/* ── 6. SCROLLBAR & SELECTION ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border-hi);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text3);
+}
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r2);
+}
+
+/* ── 7. MATH RENDERING ── */
+.katex {
+  font-size: 1.05em !important;
+}
+.katex-display {
+  margin: 12px 0 !important;
+  overflow-x: auto;
+}

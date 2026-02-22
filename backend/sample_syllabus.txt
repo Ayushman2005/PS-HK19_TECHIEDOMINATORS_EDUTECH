@@ -1,0 +1,133 @@
+PHYSICS SYLLABUS — CLASS 11 & 12
+Chapter 1: Laws of Motion
+
+Newton's First Law of Motion (Law of Inertia):
+A body continues in its state of rest or uniform motion in a straight line unless acted upon by an external unbalanced force. This property is called inertia. Heavier objects have more inertia.
+
+Newton's Second Law of Motion:
+The rate of change of momentum of a body is directly proportional to the applied force and takes place in the direction of the force.
+F = ma (Force = mass × acceleration)
+Unit of force: Newton (N) = kg·m/s²
+Example: A 5 kg object accelerates at 3 m/s² when force F = 5 × 3 = 15 N is applied.
+
+Newton's Third Law of Motion:
+For every action, there is an equal and opposite reaction. Forces always occur in pairs. If A exerts force on B, then B exerts an equal and opposite force on A.
+Example: When you push a wall, the wall pushes you back with equal force.
+
+Chapter 2: Gravitation
+
+Newton's Law of Universal Gravitation:
+Every object in the universe attracts every other object with a force directly proportional to the product of their masses and inversely proportional to the square of the distance between them.
+F = G × (m1 × m2) / r²
+G = 6.674 × 10⁻¹¹ N·m²/kg² (Universal Gravitational Constant)
+
+Acceleration due to gravity (g):
+g = GM/R² where M is mass of Earth, R is radius of Earth
+g ≈ 9.8 m/s² on Earth's surface
+g decreases with altitude: g' = g(1 - 2h/R) for small heights h
+
+Kepler's Laws:
+1. Law of Orbits: Planets move in elliptical orbits with the Sun at one focus.
+2. Law of Areas: The line joining a planet and Sun sweeps equal areas in equal time intervals.
+3. Law of Periods: T² ∝ r³ where T is orbital period and r is semi-major axis.
+
+Chapter 3: Thermodynamics
+
+Zeroth Law: If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other. This defines temperature.
+
+First Law: ΔU = Q - W
+ΔU = change in internal energy, Q = heat added, W = work done by system
+Energy is conserved. Heat added to a system equals increase in internal energy plus work done by the system.
+
+Second Law: Heat flows spontaneously from a hot body to a cold body, never the reverse without external work. Entropy of an isolated system always increases.
+
+Thermodynamic Processes:
+- Isothermal: constant temperature, PV = constant
+- Adiabatic: no heat exchange, PV^γ = constant (γ = Cp/Cv)
+- Isochoric: constant volume, Q = ΔU
+- Isobaric: constant pressure, Q = nCpΔT
+
+Chapter 4: Waves and Oscillations
+
+Simple Harmonic Motion (SHM):
+Motion where restoring force is proportional and opposite to displacement.
+F = -kx, a = -ω²x
+Period: T = 2π√(m/k) for spring-mass system
+Period of simple pendulum: T = 2π√(L/g)
+Displacement: x = A·sin(ωt + φ)
+where A = amplitude, ω = angular frequency, φ = initial phase
+
+Wave Properties:
+- Wavelength (λ): distance between successive crests
+- Frequency (f): oscillations per second (Hz)
+- Speed: v = fλ
+- Amplitude: maximum displacement from equilibrium
+- Time Period: T = 1/f
+
+Chapter 5: Electricity and Magnetism
+
+Ohm's Law: V = IR (Voltage = Current × Resistance)
+Resistance: R = ρL/A where ρ = resistivity, L = length, A = cross-section area
+
+Kirchhoff's Laws:
+- KCL: Sum of currents at a junction = 0
+- KVL: Sum of voltages around a closed loop = 0
+
+Capacitors: C = Q/V, Energy = ½CV²
+In series: 1/C = 1/C1 + 1/C2
+In parallel: C = C1 + C2
+
+Magnetic Force on a charge: F = qv × B = qvB·sinθ
+Faraday's Law: EMF = -dΦ/dt (rate of change of magnetic flux)
+Lenz's Law: Induced current opposes the change causing it.
+
+---
+MATHEMATICS SYLLABUS — CLASS 12
+
+Chapter 1: Calculus — Differentiation
+
+Derivative: f'(x) = lim(h→0) [f(x+h) - f(x)] / h
+
+Basic Rules:
+- Power Rule: d/dx(xⁿ) = nxⁿ⁻¹
+- Product Rule: d/dx(uv) = u·v' + v·u'
+- Quotient Rule: d/dx(u/v) = (v·u' - u·v') / v²
+- Chain Rule: d/dx[f(g(x))] = f'(g(x)) · g'(x)
+
+Common Derivatives:
+- d/dx(sin x) = cos x
+- d/dx(cos x) = -sin x
+- d/dx(eˣ) = eˣ
+- d/dx(ln x) = 1/x
+
+Applications:
+- Finding maxima/minima: set f'(x) = 0, check f''(x)
+- If f''(x) > 0: local minimum
+- If f''(x) < 0: local maximum
+
+Chapter 2: Integration
+
+Integration is the reverse of differentiation (antiderivative).
+∫xⁿ dx = xⁿ⁺¹/(n+1) + C (n ≠ -1)
+∫sin x dx = -cos x + C
+∫cos x dx = sin x + C
+∫eˣ dx = eˣ + C
+∫(1/x) dx = ln|x| + C
+
+Definite Integral: ∫[a to b] f(x) dx = F(b) - F(a)
+Area under curve between x=a and x=b = ∫[a to b] f(x) dx
+
+Chapter 3: Matrices and Determinants
+
+Matrix multiplication: (AB)ᵢⱼ = Σ Aᵢₖ · Bₖⱼ
+Determinant of 2×2: |A| = ad - bc for [[a,b],[c,d]]
+Inverse: A⁻¹ = adj(A) / det(A), exists only if det(A) ≠ 0
+
+Chapter 4: Probability
+
+P(A∪B) = P(A) + P(B) - P(A∩B)
+P(A|B) = P(A∩B) / P(B)  [Conditional Probability]
+Bayes' Theorem: P(A|B) = P(B|A)·P(A) / P(B)
+
+Binomial Distribution: P(X=r) = ⁿCᵣ · pʳ · (1-p)ⁿ⁻ʳ
+Mean = np, Variance = np(1-p)

@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# Neural-Notes
-=======
+
 # ✦ StudyAI — Syllabus-Aware AI Doubt Resolution System
 
 A production-ready, full-stack AI learning assistant that answers student questions **exclusively from uploaded syllabus material**, preventing hallucinations and ensuring syllabus alignment.
@@ -9,7 +7,7 @@ A production-ready, full-stack AI learning assistant that answers student questi
 
 ## 🏗 Architecture
 
-```
+```bash
 ┌─────────────────────────────────────────────────────────────────────┐
 │                        StudyAI Architecture                         │
 ├──────────────────────────┬──────────────────────────────────────────┤
@@ -25,7 +23,7 @@ A production-ready, full-stack AI learning assistant that answers student questi
 
 ### RAG Pipeline
 
-```
+```bash
 User Question
      │
      ▼
@@ -59,7 +57,7 @@ Response + Source Attribution + Confidence Score
 
 ## 📁 Project Structure
 
-```
+```bash
 studyai/
 ├── backend/
 │   ├── main.py              # FastAPI app, all routes
@@ -105,7 +103,7 @@ npm run dev
 ```
 
 ### 4. Open App
-```
+```bash
 http://localhost:5173
 ```
 
@@ -204,4 +202,3 @@ CHUNK_OVERLAP = 80      # Overlap words between chunks
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Can use larger models for better recall
 # Retrieval threshold: 0.25 (lower = more permissive, higher = stricter)
 ```
->>>>>>> 20e55b9 (Initial Commit)

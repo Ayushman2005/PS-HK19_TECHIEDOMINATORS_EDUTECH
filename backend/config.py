@@ -16,7 +16,7 @@ class Config:
     )
 
     # ── AI Model ──────────────────────────────────────────────────────────────
-    gemini_model: str = "gemini-2.5-flash"
+    gemini_model: str = "gemini-1.5-flash"
     max_tokens: int = 1500
 
     # ── RAG ───────────────────────────────────────────────────────────────────

@@ -10,15 +10,15 @@ from typing import List, Dict, Optional, Any
 import chromadb
 from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
-import numpy as np
-
+import google.generativeai as genai
+from config import settings
 
 class RAGEngine:
     """
     Core Retrieval-Augmented Generation engine.
     
     Architecture:
-      - Embedding model: all-MiniLM-L6-v2 (fast, accurate, 384-dim)
+      - Embedding model: Google Gemini (models/embedding-001) - API based to save memory
       - Vector store: ChromaDB (persistent, local SQLite backend)
       - Chunking: Sliding window with overlap for context preservation
       - Retrieval: Cosine similarity with subject-level filtering
@@ -26,7 +26,7 @@ class RAGEngine:
 
     CHUNK_SIZE = 250      # Reduced chunk size for granular, highly accurate retrieval
     CHUNK_OVERLAP = 50    # Overlap to preserve context boundaries
-    EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5" # State-of-the-art highly accurate retrieval model
+    EMBEDDING_MODEL = "models/embedding-001"
 
     def __init__(self, persist_dir: str = "./chroma_store"):
         print("[RAG] Initializing ChromaDB...")
@@ -36,8 +36,12 @@ class RAGEngine:
         )
         self.collection = self.client.get_or_create_collection(name="syllabus_docs")
 
-        print(f"[RAG] Loading embedding model: {self.EMBEDDING_MODEL}")
-        self.embedder = SentenceTransformer(self.EMBEDDING_MODEL)
+        print(f"[RAG] Using Gemini Embedding model: {self.EMBEDDING_MODEL}")
+        if settings.gemini_api_key:
+            genai.configure(api_key=settings.gemini_api_key)
+        else:
+            print("[RAG] WARNING: GEMINI_API_KEY not found. Embeddings will fail.")
+        
         print("[RAG] Ready.")
 
         # In-memory doc registry
@@ -71,7 +75,13 @@ class RAGEngine:
 
         print(f"[RAG] Indexing doc {doc_id}: {len(chunks)} chunks from '{metadata.get('filename', '?')}'")
 
-        embeddings = self.embedder.encode(chunks, batch_size=32, show_progress_bar=False).tolist()
+        # Use Gemini API for embeddings
+        res = genai.embed_content(
+            model=self.EMBEDDING_MODEL,
+            content=chunks,
+            task_type="retrieval_document"
+        )
+        embeddings = res['embedding']
 
         ids = [f"{doc_id}_{i}" for i in range(len(chunks))]
         chunk_metadata = [{
@@ -129,7 +139,13 @@ class RAGEngine:
         if self.collection.count() == 0:
             return {"chunks": [], "query": query}
 
-        query_embedding = self.embedder.encode([query])[0].tolist()
+        # Use Gemini API for query embedding
+        res = genai.embed_content(
+            model=self.EMBEDDING_MODEL,
+            content=query,
+            task_type="retrieval_query"
+        )
+        query_embedding = res['embedding']
 
         where_filter = {}
         if subject_filter and subject_filter.lower() != "general":

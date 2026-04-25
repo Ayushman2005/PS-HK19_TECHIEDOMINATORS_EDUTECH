@@ -3,7 +3,6 @@ uvicorn[standard]
 python-multipart
 python-dotenv
 chromadb
-sentence-transformers
 google-generativeai
 ollama
 pypdf

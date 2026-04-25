@@ -9,7 +9,6 @@ import re
 from typing import List, Dict, Optional, Any
 import chromadb
 from chromadb.config import Settings
-from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
 from config import settings
 

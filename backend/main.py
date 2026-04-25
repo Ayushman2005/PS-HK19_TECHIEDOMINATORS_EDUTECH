@@ -12,6 +12,10 @@ from ai_client import AIClient
 
 app = FastAPI(title="NeuralNotes Backend")
 
+@app.get("/")
+async def root():
+    return {"status": "NeuralNotes Backend is running", "version": "1.0.0"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

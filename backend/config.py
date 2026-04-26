@@ -6,13 +6,17 @@ All environment variables and constants live here.
 import os
 from dataclasses import dataclass, field
 from typing import Optional
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
 
 
 @dataclass
 class Config:
     # ── API Keys ──────────────────────────────────────────────────────────────
     gemini_api_key: str = field(
-        default_factory=lambda: os.environ.get("GEMINI_API_KEY", "")
+        default_factory=lambda: os.environ.get("GEMINI_API_KEY", "").strip()
     )
 
     # ── AI Model ──────────────────────────────────────────────────────────────
